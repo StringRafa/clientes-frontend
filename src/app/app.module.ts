@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ClientesModule } from './clientes/clientes.module';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ClientesModule,
     TemplateModule
   ],
   providers: [],
