@@ -5,10 +5,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ClientesModule } from './clientes/clientes.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
