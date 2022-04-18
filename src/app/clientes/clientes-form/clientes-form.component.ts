@@ -12,6 +12,8 @@ export class ClientesFormComponent implements OnInit {
   cliente: Cliente
   success: boolean = false;
   errors: String[];
+  id: string;
+  date: string;
 
   constructor(
     private service : ClientesService
@@ -27,11 +29,18 @@ export class ClientesFormComponent implements OnInit {
     .subscribe( response => {
       this.success = true;
       this.errors = null;
-      this.cliente = response;
+      this.id = this.extractId(response.headers.get('location'));
+      this.date = response.headers.get('Date');
+      console.log(this.date);
     } , errorResponse => {
       this.success = false;
       this.errors = errorResponse.error.errors;
     }
     );
+  }
+
+  private extractId(location : string) : string {
+    let position = location.lastIndexOf('/');
+    return location.substring(position + 1, location.length);
   }
 }
