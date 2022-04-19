@@ -14,14 +14,14 @@
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="id">
+    <div class="row" *ngIf="cliente.id">
       <div class="col-md-6">
         <div class="form-grup">
           <label>ID:</label>
           <input
             type="text"
             class="form-control"
-            [ngModel]="id"
+            [ngModel]="cliente.id"
             name="id"
             disabled="true"
           />
@@ -33,7 +33,7 @@
           <input
             type="text"
             class="form-control"
-            [ngModel]="date"
+            [ngModel]="cliente.dataCadastro"
             name="dataCadastro"
             disabled="true"
           />

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { ClientesService } from './../../clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
@@ -29,9 +30,7 @@ export class ClientesFormComponent implements OnInit {
     .subscribe( response => {
       this.success = true;
       this.errors = null;
-      this.id = this.extractId(response.headers.get('location'));
-      this.date = response.headers.get('Date');
-      console.log(this.date);
+      this.cliente = response;
     } , errorResponse => {
       this.success = false;
       this.errors = errorResponse.error.errors;
