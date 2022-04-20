@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { ClientesService } from './../../clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
