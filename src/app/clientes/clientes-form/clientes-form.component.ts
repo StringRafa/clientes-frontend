@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientesService } from './../../clientes.service';
 import { Component, OnInit } from '@angular/core';
@@ -25,28 +26,44 @@ export class ClientesFormComponent implements OnInit {
 
   ngOnInit(): void {
    let params = this.activatedRoute.params;
-   if( params && params.value && params.value.id){
-    this.id = params.value.id;
-    this.service.getClienteById(this.id)
+   params.subscribe( urlParams => {
+     this.id = urlParams['id'];
+     if(this.id){
+      this.service.getClienteById(this.id)
       .subscribe( response => this.cliente = response,
         error => this.cliente = new Cliente()
          );
-   }
+     }
+   })
    console.log(this.id);
   }
 
   onSubmit(){
-    this.service.salvar(this.cliente)
-    .subscribe( response => {
-      this.success = true;
-      this.errors = null;
-      this.cliente = response;
-      console.log(response);
-    } , errorResponse => {
-      this.success = false;
-      this.errors = errorResponse.error.errors;
+    if(this.id){
+      this.service
+        .atualizar(this.cliente)
+        .subscribe( response => {
+          this.success = true;
+          this.errors = null;
+        },
+        errorResponse => {
+          this.success = false;
+          this.errors = errorResponse.error.errors;
+        });
+    }else{
+      this.service.salvar(this.cliente)
+      .subscribe( response => {
+        this.success = true;
+        this.errors = null;
+        this.cliente = response;
+        console.log(response);
+      } , errorResponse => {
+        this.success = false;
+        this.errors = errorResponse.error.errors;
+      }
+      );
     }
-    );
+
   }
 
   voltarParaListagem(){
