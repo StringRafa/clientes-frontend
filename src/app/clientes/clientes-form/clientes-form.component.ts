@@ -45,6 +45,7 @@ export class ClientesFormComponent implements OnInit {
         .subscribe( response => {
           this.success = true;
           this.errors = null;
+          this.router.navigate(['/clientes-lista']);
         },
         errorResponse => {
           this.success = false;
@@ -56,6 +57,7 @@ export class ClientesFormComponent implements OnInit {
         this.success = true;
         this.errors = null;
         this.cliente = response;
+        this.router.navigate(['/clientes-lista']);
         console.log(response);
       } , errorResponse => {
         this.success = false;
