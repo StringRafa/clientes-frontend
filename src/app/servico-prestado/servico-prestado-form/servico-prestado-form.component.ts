@@ -1,3 +1,4 @@
+import { ServicoPrestadoService } from './../../servico-prestado.service';
 import { ServicoPrestado } from './../servicoPrestado';
 import { ClientesService } from 'src/app/clientes.service';
 import { Cliente } from './../../clientes/cliente';
@@ -14,7 +15,8 @@ export class ServicoPrestadoFormComponent implements OnInit {
   servico: ServicoPrestado;
 
   constructor(
-    private clienteService: ClientesService
+    private clienteService: ClientesService,
+    private servicoService: ServicoPrestadoService
     ) {
       this.servico = new ServicoPrestado();
      }
@@ -26,6 +28,6 @@ export class ServicoPrestadoFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.servico);
+    console.log(this.servico)
   }
 }

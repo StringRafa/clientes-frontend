@@ -1,3 +1,4 @@
+import { ServicoPrestadoService } from './servico-prestado.service';
 import { ClientesService } from './clientes.service';
 import { ClientesModule } from './clientes/clientes.module';
 import { TemplateModule } from './template/template.module';
@@ -24,7 +25,8 @@ import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.modul
     ServicoPrestadoModule
   ],
   providers: [
-    ClientesService
+    ClientesService,
+    ServicoPrestadoService
   ],
   bootstrap: [AppComponent]
 })
