@@ -58,7 +58,6 @@ export class ClientesFormComponent implements OnInit {
         this.errors = null;
         this.cliente = response;
         this.router.navigate(['/clientes-lista']);
-        console.log(response);
       } , errorResponse => {
         this.success = false;
         this.errors = errorResponse.error.errors;
