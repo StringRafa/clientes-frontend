@@ -24,7 +24,7 @@ export class ServicoPrestadoService {
 
     const httpParams = new HttpParams()
       .set("nome", nome)
-      .set("mes", mes.toString());
+      .set("mes", mes ? mes.toString() : '');
 
     const url = this.apiURLBase + "?" + httpParams.toString();
     return this.http.get<any>(url);
