@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

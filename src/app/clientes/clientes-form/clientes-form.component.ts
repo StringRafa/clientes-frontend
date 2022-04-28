@@ -45,7 +45,7 @@ export class ClientesFormComponent implements OnInit {
         .subscribe( response => {
           this.success = true;
           this.errors = null;
-          this.router.navigate(['/clientes-lista']);
+          this.router.navigate(['/clientes/lista']);
         },
         errorResponse => {
           this.success = false;
@@ -57,7 +57,7 @@ export class ClientesFormComponent implements OnInit {
         this.success = true;
         this.errors = null;
         this.cliente = response;
-        this.router.navigate(['/clientes-lista']);
+        this.router.navigate(['/clientes/lista']);
       } , errorResponse => {
         this.success = false;
         this.errors = errorResponse.error.errors;
@@ -68,7 +68,7 @@ export class ClientesFormComponent implements OnInit {
   }
 
   voltarParaListagem(){
-    this.router.navigate(['/clientes-lista']);
+    this.router.navigate(['/clientes/lista']);
   }
 
 }
