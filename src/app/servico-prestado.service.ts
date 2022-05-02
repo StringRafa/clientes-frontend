@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 })
 export class ServicoPrestadoService {
 
-  apiURLBase: string = environment.apiURLBase + '/servicos-prestados';
+  apiURLBase: string = environment.apiURLBase + '/api/servicos-prestados';
 
   constructor(
     private http: HttpClient
