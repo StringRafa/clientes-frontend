@@ -22,22 +22,15 @@ export class LoginComponent {
   ) { }
 
   onSubmit(){
-    // this.authService
-    //       .login(this.username, this.password)
-    //       .subscribe(response => {
-    //         const access_token = JSON.stringify(response);
-    //         localStorage.setItem('access_token', access_token)
-    //         this.router.navigate(['/home'])
-    //       }, errorResponse => {
-    //         this.errors = ['Usuário e/ou senha incorreto(s).']
-    //       })
-    this.authService.login(this.username, this.password)
+    this.authService
+          .login(this.username, this.password)
           .subscribe( response => {
-            console.log(response);
-             this.router.navigate(['home']);
-          }, responseError =>{
-             this.errors = ["Usuário e/ou senha incorreto(s)."];
-          });
+            const access_token = JSON.stringify(response);
+            localStorage.setItem('access_token', access_token)
+            this.router.navigate(['/home'])
+          }, errorResponse => {
+            this.errors = ['Usuário e/ou senha incorreto(s).']
+          })
   }
 
   preparaCadastrar(event){
