@@ -1,3 +1,4 @@
+import { AuthGuard } from './../auth.guard';
 import { LayoutComponent } from './../layout/layout.component';
 import { ClientesListaComponent } from './clientes-lista/clientes-lista.component';
 import { ClientesFormComponent } from './clientes-form/clientes-form.component';
@@ -5,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'clientes', component: LayoutComponent, children: [
+  { path: 'clientes', component: LayoutComponent, canActivate: [AuthGuard], children: [
 
     { path: 'form', component: ClientesFormComponent },
     { path: 'form/:id', component: ClientesFormComponent },

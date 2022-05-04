@@ -4,6 +4,7 @@ import { ClientesService } from './../../clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 
+
 @Component({
   selector: 'app-clientes-form',
   templateUrl: './clientes-form.component.html',
@@ -45,6 +46,7 @@ export class ClientesFormComponent implements OnInit {
         .subscribe( response => {
           this.success = true;
           this.errors = null;
+          waits(100000);
           this.router.navigate(['/clientes/lista']);
         },
         errorResponse => {
